@@ -4,11 +4,10 @@ import model.Note
 import java.util.Scanner
 
 class NoteViewScreen(
+        private val scanner: Scanner,
         private val stack: ArrayDeque<Screen>,
         private val note: Note
 ) : Screen {
-
-    private val scanner: Scanner = Scanner(System.`in`)
 
     override fun render() {
         println(note.name)

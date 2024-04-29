@@ -5,11 +5,11 @@ import model.Note
 import java.util.Scanner
 
 class NoteCreateScreen(
+        private val scanner: Scanner,
         private val stack: ArrayDeque<Screen>,
         private val archive: Archive
 ) : Screen {
 
-    private val scanner: Scanner = Scanner(System.`in`)
     private var noteName: String = ""
     private var noteBody: String = ""
 
