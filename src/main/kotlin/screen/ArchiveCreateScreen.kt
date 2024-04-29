@@ -13,11 +13,11 @@ class ArchiveCreateScreen(
     override fun render() {
         println("Введите название архива")
         val input = scanner.nextLine()
-        if (input != "") {
+        if (input.isBlank()) {
+            println("Название архива не может быть пустым")
+        } else {
             archives.add(Archive(input))
             stack.removeLast()
-        } else {
-            println("Название архива не может быть пустым")
         }
     }
 }

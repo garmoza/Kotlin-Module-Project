@@ -24,7 +24,7 @@ class ArchiveSelectScreen(
             if (index in menu.indices) {
                 menu[index].onSelect()
             } else {
-                println("Указанной цифры нет. Пожалуйста, введите идин из доступных вариантов")
+                println("Указанной цифры нет. Пожалуйста, введите один из доступных вариантов")
             }
         } catch (e: NumberFormatException) {
             println("Пожалуйста, введите цифру")
@@ -35,7 +35,7 @@ class ArchiveSelectScreen(
         menu.clear()
         menu.add(MenuItem("Созадть архив") { stack.addLast(ArchiveCreateScreen(stack, archives)) })
         for (archive in archives) {
-            menu.add(MenuItem(archive.name) { stack.addLast(NoteSelectScreen(stack)) })
+            menu.add(MenuItem(archive.name) { stack.addLast(NoteSelectScreen(stack, archive)) })
         }
         menu.add(MenuItem("Выход") {
             stack.removeLast()
