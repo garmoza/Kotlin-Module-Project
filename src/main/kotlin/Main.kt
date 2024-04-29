@@ -1,3 +1,4 @@
+import java.lang.NumberFormatException
 import java.util.Scanner
 
 class Archive(val notes: List<String>) {
@@ -41,7 +42,10 @@ class ArchiveSelectableScreen(
 
     init {
         menu.add(MenuItem("Созадть архив") { println("Архив создан") })
-        menu.add(MenuItem("Выход", ::onClose))
+        menu.add(MenuItem("Выход") {
+            stack.removeLast()
+            println("Пока! Пока!")
+        })
     }
 
     private fun renderMenu() {
@@ -51,17 +55,20 @@ class ArchiveSelectableScreen(
     }
 
     override fun render() {
-        println("Это первый экрна")
-
         renderMenu()
 
         val input: String = scanner.nextLine()
-        menu[input.toInt()].onSelect()
-    }
+        try {
+            val index = input.toInt()
 
-    fun onClose() {
-        stack.removeLast()
-        println("Пока! Пока!")
+            if (index in menu.indices) {
+                menu[input.toInt()].onSelect()
+            } else {
+                println("Указанной цифры нет. Пожалуйста, введите идин из доступных вариантов")
+            }
+        } catch (e: NumberFormatException) {
+            println("Пожалуйста, введите цифру")
+        }
     }
 }
 
