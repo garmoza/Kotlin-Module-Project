@@ -1,6 +1,5 @@
 package screen
 
-import model.MenuItem
 import java.lang.NumberFormatException
 import java.util.Scanner
 

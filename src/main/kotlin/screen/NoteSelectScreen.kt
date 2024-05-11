@@ -1,7 +1,6 @@
 package screen
 
 import model.Archive
-import model.MenuItem
 import java.util.Scanner
 
 class NoteSelectScreen(
