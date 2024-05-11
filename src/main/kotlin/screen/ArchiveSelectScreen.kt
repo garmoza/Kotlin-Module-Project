@@ -10,7 +10,7 @@ class ArchiveSelectScreen(
 ) : SelectScreen(scanner) {
 
     override fun createMenu() {
-        menu.add(MenuItem("Созадть архив") { stack.addLast(ArchiveCreateScreen(scanner, stack, archives)) })
+        menu.add(MenuItem("Создать архив") { stack.addLast(ArchiveCreateScreen(scanner, stack, archives)) })
         for (archive in archives) {
             menu.add(MenuItem(archive.name) { stack.addLast(NoteSelectScreen(scanner, stack, archive)) })
         }
